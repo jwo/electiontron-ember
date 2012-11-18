@@ -1,0 +1,37 @@
+<div class="fluid-row">
+  <div class="span8">
+    <div class="well"><h1>Desserts</h1></div>
+
+  {{#with Electiontron.ballotController}}
+    {{#if votingForDessertsAllowed }}
+      <p>You are voting for the {{dessertCount}} side.</p>
+    {{ else }}
+      <button class="btn btn-success btn-large" {{action submitVote target="Electiontron.ballotController"}}>Submit</button>
+    {{/if}}
+  {{/with}}
+
+  {{#each Electiontron.entriesController.desserts}}
+    <div {{bindAttr class="selected :entry :span3"}} {{action voteFor id target="Electiontron.ballotController"}} >
+      <h3>{{name}}</h3>
+      <img {{bindAttr src="largeUrl"}}/>
+      <h6>{{chef}}</h6>
+      {{selected}}
+    </div>
+  {{/each}}
+  </div>
+
+  <div class="span3">
+    <h3>Your ballot</h3>
+
+    <ol>
+    {{#each Electiontron.ballotController.sides}}
+      <li>{{name}}</li>
+    {{/each}}
+    </ol>
+    <ol>
+    {{#each Electiontron.ballotController.desserts}}
+      <li>{{name}}</li>
+    {{/each}}
+    </ol>
+  </div>
+</div>

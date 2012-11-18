@@ -13,3 +13,9 @@
  */
 @import "bootstrap";
 @import "bootstrap-responsive";
+
+.entry.selected{
+  img {
+    border: 1px solid red;
+  }
+}

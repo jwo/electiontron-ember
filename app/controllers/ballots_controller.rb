@@ -1,7 +1,8 @@
 class BallotsController < ApplicationController
-  respond_to :js
+  respond_to :json
 
   def index
-    respond_with Ballot.all
+    respond_with Ballot.with_code(params[:code]).all
   end
+
 end

@@ -1,0 +1,16 @@
+
+<div class="well">
+  <button class="btn btn-large pull-right" {{action startVoting}}>Start Voting</button>
+  <h1>Start Voting</h1>
+  <br clear="all"/>
+</div>
+
+{{#each Electiontron.entriesController}}
+
+  <div class="entry span4">
+    <h3>{{name}}</h3>
+    <img {{bindAttr src="largeUrl"}}/>
+    <h6>{{chef}}</h6>
+  </div>
+
+{{/each}}
